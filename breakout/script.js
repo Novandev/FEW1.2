@@ -19,6 +19,30 @@ var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
 
+
+// Block variable section
+var brickRowCount = 3;
+var brickColumnCount = 5;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+// END Block Variable section
+
+
+// Create the bricks
+var bricks = [];
+for(var c=0; c<brickColumnCount; c++) {
+    bricks[c] = [];
+    for(var r=0; r<brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0, status: 1 };
+    }
+}
+// End brick creation
+
+
+
 document.addEventListener("keydown", keyDownHandler, false);    // Listens for key down event
 document.addEventListener("keyup", keyUpHandler, false);    // Listens for key up events
 
@@ -105,29 +129,69 @@ let drawPaddle = {
 
 // END paddle class
 
+// Brick function
+const drawBricks = () => {
+    for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
+            if(bricks[c][r].status == 1) {
+                var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+                var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = "#0095DD";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+// End brick section
 
+//Collision section
 
-
+const collisionDetection = () => {
+    for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
+            var b = bricks[c][r];
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                    dy = -dy;
+                    b.status = 0;
+                }
+            }
+        }
+    }
+}
+//END Collision section
 
 // Draws on the screen and updates the x and y points
 let draw = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height); //This method takes four parameters: the x and y coordinates of the top left corner of a rectangle, and the x and y coordinates of the bottom right corner of a rectangle. The whole area covered by this rectangle will be cleared of any content previously painted there.
+    drawBricks()
     drawPaddle.render()
     drawBall.render()      //  Continuously renders the ball
+    collisionDetection();
 
 
     if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {     // for the x axis if the current position, plus whatever is being adding to it places that out of the canvas, reviserse the bounce
         dx = -dx;
         drawBall.color = getRandomColor()       // changes the color to another via hex code on each bump
     }
-    if(y + dy > canvas.height - ballRadius || y + dy < ballRadius) {    // // for the y axis if the current position, plus whatever is being adding to it places that out of the canvas, reviserse the bounce
+
+    if(y + dy < ballRadius || y + dy < ballRadius) {    //     for the y axis if the current position, plus whatever is being adding to it places that out of the canvas, reviserse the bounce
+
         dy = -dy;
-        drawBall.color = getRandomColor()       // changes the color to another via hex code on each bump
-    } else if(y + dy > canvas.height - ballRadius) {    // if the ball is moved below the canvas
-        if (x > paddleX && x < paddleX + paddleWidth) {     // if the paddle X basically isn't with
-            dy = -dy;
-        } else {
-            alert("GAME OVER");
+    }
+    else if(y + dy > canvas.height-ballRadius) {        // if the ball is moved below the canvas
+        if(x > paddleX && x < paddleX + paddleWidth) {   // if the paddle X basically isn't covering the smae space as the ball is currently at
+            if(y= y-paddleHeight){
+                dy = -dy  ;
+            }
+        }
+        else {
+            console.log("game over")
             document.location.reload();
         }
     }
