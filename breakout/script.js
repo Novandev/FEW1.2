@@ -123,9 +123,16 @@ let draw = () => {
     if(y + dy > canvas.height - ballRadius || y + dy < ballRadius) {    // // for the y axis if the current position, plus whatever is being adding to it places that out of the canvas, reviserse the bounce
         dy = -dy;
         drawBall.color = getRandomColor()       // changes the color to another via hex code on each bump
+    } else if(y + dy > canvas.height - ballRadius) {    // if the ball is moved below the canvas
+        if (x > paddleX && x < paddleX + paddleWidth) {     // if the paddle X basically isn't with
+            dy = -dy;
+        } else {
+            alert("GAME OVER");
+            document.location.reload();
+        }
     }
 
-    if(rightPressed && paddleX < canvas.width - paddleWidth) {
+    if(rightPressed && paddleX < canvas.width - paddleWidth) { //Move the paddle to the left or right
         paddleX += 7;
     }
     else if(leftPressed && paddleX > 0) {
