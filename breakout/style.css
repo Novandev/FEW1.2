@@ -1,0 +1,8 @@
+* { padding: 0; margin: 0; }
+canvas { background: #eee; max-width: 50%; margin: 0 auto; margin-top:25vh; }
+
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
