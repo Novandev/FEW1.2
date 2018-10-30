@@ -31,6 +31,8 @@ var brickOffsetLeft = 30;
 // END Block Variable section
 
 
+var score = 0; // Score variable
+
 // Create the bricks
 var bricks = [];
 for(var c=0; c<brickColumnCount; c++) {
@@ -48,7 +50,9 @@ document.addEventListener("keyup", keyUpHandler, false);    // Listens for key u
 
 // End  Paddle variables
 
-
+// Mouse Methods
+document.addEventListener("mousemove", mouseMoveHandler, false);
+//End Mouse methods
 // Keyboard methods
 
 function keyDownHandler(e) {
@@ -116,7 +120,7 @@ let  drawBall =  {
 
 let drawPaddle = {
 
-    render(){
+    render() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
         ctx.fillStyle = "#0095DD";
@@ -124,10 +128,104 @@ let drawPaddle = {
         ctx.closePath();
     }
 
-
 }
 
+// randomColor = getRandomColor()
 // END paddle class
+
+
+// ---------- CHALLENGE SECTION ----------//
+
+
+
+// // CHALLENGE 1.1 SECTION
+// // Random color section for rendering color on every other brick row
+// const randomColor1 = getRandomColor();
+// const randomColor2 = getRandomColor();
+//
+//
+//
+// // Brick function
+// const drawBricks = () => {
+//     for(var c=0; c<brickColumnCount; c++) {
+//         for(var r=0; r<brickRowCount; r++) {
+//             if(bricks[c][r].status == 1) {
+//                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+//                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+//                 bricks[c][r].x = brickX;
+//                 bricks[c][r].y = brickY;
+//                 ctx.beginPath();
+//                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
+//                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
+//                 if(r % 2 == 0){
+//                     ctx.fillStyle = randomColor1;
+//                 }
+//                 else{
+//                     ctx.fillStyle = randomColor2;
+//                 }
+//
+//                 ctx.fill();
+//                 ctx.closePath();
+//             }
+//         }
+//     }
+// }
+// // End brick section
+//
+// // End Challenge 1.1 section
+
+
+// CHALLENGE 1.2 SECTION
+// Random color section for rendering color on every other brick
+// const randomColor1 = getRandomColor();
+// const randomColor2 = getRandomColor();
+// const randomColor3 = getRandomColor();
+// const randomColor4 = getRandomColor();
+// const randomColor5 = getRandomColor();
+//
+//
+// // Brick function
+// const drawBricks = () => {
+//     for(var c=0; c<brickColumnCount; c++) {
+//         for(var r=0; r<brickRowCount; r++) {
+//             if(bricks[c][r].status == 1) {
+//                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+//                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+//                 bricks[c][r].x = brickX;
+//                 bricks[c][r].y = brickY;
+//                 ctx.beginPath();
+//                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
+//                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
+//                 if(c % 4 == 0){
+//                     ctx.fillStyle = randomColor1;
+//                 }
+//                 else if(c % 4 == 1){
+//                     ctx.fillStyle = randomColor2;
+//                 }else if(c % 4 == 2){
+//                     ctx.fillStyle = randomColor3;
+//                 }else if(c % 4 == 3){
+//                     ctx.fillStyle = randomColor4;
+//                 }else{
+//                     ctx.fillStyle = randomColor5;
+//                 }
+//
+//                 ctx.fill();
+//                 ctx.closePath();
+//             }
+//         }
+//     }
+// }
+// End brick section
+
+// End Challenge 1.2 section
+
+
+// CHALLENGE 1.3 SECTION
+// Random color section for rendering color on every other brick
+const randomColor1 = getRandomColor();
+const randomColor2 = getRandomColor();
+
+
 
 // Brick function
 const drawBricks = () => {
@@ -140,7 +238,14 @@ const drawBricks = () => {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                // This logic will change every other brick column to a select color # CHALLENGE 1.1
+                if(c % 2 == 0 && r % 2==0){
+                    ctx.fillStyle = randomColor1;
+                }
+                else if(c % 2 == 0 && r % 2==1){
+                    ctx.fillStyle = randomColor2;
+                }
+
                 ctx.fill();
                 ctx.closePath();
             }
@@ -149,6 +254,21 @@ const drawBricks = () => {
 }
 // End brick section
 
+// End Challenge 1.3 section
+
+
+
+
+
+// ---------- END CHALLENGE SECTION ----------//
+
+// Score section
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20);
+}
+// End Score section
 //Collision section
 
 const collisionDetection = () => {
@@ -171,12 +291,24 @@ const collisionDetection = () => {
 }
 //END Collision section
 
+// Mouse move
+function mouseMoveHandler(e) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth/2;
+    }
+}
+// End mouse move
+
+
 // Draws on the screen and updates the x and y points
 let draw = () => {
+
     ctx.clearRect(0, 0, canvas.width, canvas.height); //This method takes four parameters: the x and y coordinates of the top left corner of a rectangle, and the x and y coordinates of the bottom right corner of a rectangle. The whole area covered by this rectangle will be cleared of any content previously painted there.
     drawBricks()
     drawPaddle.render()
     drawBall.render()      //  Continuously renders the ball
+    drawScore();
     collisionDetection();
 
 
@@ -210,6 +342,9 @@ let draw = () => {
 
     x += dx;        // By adding  2 to each of the x and y axis, the ball moves
     y += dy;
+    requestAnimationFrame(draw);
 }
 
-setInterval(draw, 10);  // Set interval is used to redraw the ball after every 10 milliseconds allowing for "movement"
+// setInterval(draw, 10);  // Set interval is used to redraw the ball after every 10 milliseconds allowing for "movement"
+
+draw();
