@@ -244,6 +244,11 @@ const drawBricks = () => {
                 }
                 else if(c % 2 == 0 && r % 2==1){
                     ctx.fillStyle = randomColor2;
+                }else if(c % 2 == 1 && r % 2==0){
+                    ctx.fillStyle = randomColor2;
+                }
+                else{
+                    ctx.fillStyle = randomColor1;
                 }
 
                 ctx.fill();
