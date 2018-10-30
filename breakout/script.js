@@ -222,15 +222,78 @@ let drawPaddle = {
 
 // CHALLENGE 1.3 SECTION
 // Random color section for rendering color on every other brick
-const randomColor1 = getRandomColor();
-const randomColor2 = getRandomColor();
+// const randomColor1 = getRandomColor();
+// const randomColor2 = getRandomColor();
 
 
+
+// // Brick function
+// const drawBricks = () => {
+//     for(var c=0; c<brickColumnCount; c++) {
+//         for(var r=0; r<brickRowCount; r++) {
+//             if(bricks[c][r].status == 1) {
+//                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+//                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+//                 bricks[c][r].x = brickX;
+//                 bricks[c][r].y = brickY;
+//                 ctx.beginPath();
+//                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
+//                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
+//                 if(c % 2 == 0 && r % 2==0){
+//                     ctx.fillStyle = randomColor1;
+//                 }
+//                 else if(c % 2 == 0 && r % 2==1){
+//                     ctx.fillStyle = randomColor2;
+//                 }else if(c % 2 == 1 && r % 2==0){
+//                     ctx.fillStyle = randomColor2;
+//                 }
+//                 else{
+//                     ctx.fillStyle = randomColor1;
+//                 }
+//
+//                 ctx.fill();
+//                 ctx.closePath();
+//             }
+//         }
+//     }
+// }
+// // End brick section
+//
+// // End Challenge 1.3 section
+
+
+
+// CHALLENGE 1.4 SECTION
+// Random color section for rendering color on every brick
+
+// lets try to use a generator for this!
+
+function * colorGenerator(arr) {
+    for (let i = 0; i < arr.length; i += 1) {
+        yield arr[i];
+    }
+}
+
+
+const randomColorList =[];
+
+    for(let i = 0; i < bricks.length; i++){
+        let color = getRandomColor()
+        randomColorList.push(color)
+        console.log(color)
+}
+
+
+// Variable that we can call '.next()' on
+const genColor = colorGenerator(randomColorList);
+console.log(genColor.next().value)
 
 // Brick function
 const drawBricks = () => {
+
     for(var c=0; c<brickColumnCount; c++) {
         for(var r=0; r<brickRowCount; r++) {
+            console.log(c*r)
             if(bricks[c][r].status == 1) {
                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
@@ -239,18 +302,8 @@ const drawBricks = () => {
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
-                if(c % 2 == 0 && r % 2==0){
-                    ctx.fillStyle = randomColor1;
-                }
-                else if(c % 2 == 0 && r % 2==1){
-                    ctx.fillStyle = randomColor2;
-                }else if(c % 2 == 1 && r % 2==0){
-                    ctx.fillStyle = randomColor2;
-                }
-                else{
-                    ctx.fillStyle = randomColor1;
-                }
-
+                ctx.fillStyle = getRandomColor();
+                console.log(ctx.fillStyle)
                 ctx.fill();
                 ctx.closePath();
             }
@@ -259,8 +312,7 @@ const drawBricks = () => {
 }
 // End brick section
 
-// End Challenge 1.3 section
-
+// End Challenge 1.4 section
 
 
 
