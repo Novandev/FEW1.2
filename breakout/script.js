@@ -4,6 +4,10 @@ var canvas = document.getElementById("myCanvas");
 // Sets the canvas to render 2d elements
 var ctx = canvas.getContext("2d");
 
+
+
+
+
 var x = canvas.width/2;     // Defines the starting x coordinate for the ball in the canvas
 var y = canvas.height-30;   // Defines the starting y coordinate for the ball in the canvas
 
@@ -24,6 +28,14 @@ var leftPressed = false;
 var brickRowCount = 3;
 var brickColumnCount = 5;
 var brickWidth = 75;
+//SECTION FOR STRETCH CHALLENGE 1 this will give it neat rows and columns for it's sizing
+// var brickColumnCount = 10 ;
+// var brickWidth = 35;
+
+//END STRETCH CHALLENGE 1
+
+
+
 var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
@@ -53,6 +65,25 @@ document.addEventListener("keyup", keyUpHandler, false);    // Listens for key u
 // Mouse Methods
 document.addEventListener("mousemove", mouseMoveHandler, false);
 //End Mouse methods
+
+
+
+// BACKGROUND GRADIENT FUNCTION
+const gradient = () =>{
+    var grd=ctx.createLinearGradient(canvas.width,canvas.height,0,0);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+
+// Fill with gradient
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+
+
+// END Background gradient function
+
+
 // Keyboard methods
 
 function keyDownHandler(e) {
@@ -222,41 +253,41 @@ let drawPaddle = {
 
 // CHALLENGE 1.3 SECTION
 // Random color section for rendering color on every other brick
-// const randomColor1 = getRandomColor();
-// const randomColor2 = getRandomColor();
+const randomColor1 = getRandomColor();
+const randomColor2 = getRandomColor();
 
 
 
 // // Brick function
-// const drawBricks = () => {
-//     for(var c=0; c<brickColumnCount; c++) {
-//         for(var r=0; r<brickRowCount; r++) {
-//             if(bricks[c][r].status == 1) {
-//                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
-//                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
-//                 bricks[c][r].x = brickX;
-//                 bricks[c][r].y = brickY;
-//                 ctx.beginPath();
-//                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-//                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
-//                 if(c % 2 == 0 && r % 2==0){
-//                     ctx.fillStyle = randomColor1;
-//                 }
-//                 else if(c % 2 == 0 && r % 2==1){
-//                     ctx.fillStyle = randomColor2;
-//                 }else if(c % 2 == 1 && r % 2==0){
-//                     ctx.fillStyle = randomColor2;
-//                 }
-//                 else{
-//                     ctx.fillStyle = randomColor1;
-//                 }
-//
-//                 ctx.fill();
-//                 ctx.closePath();
-//             }
-//         }
-//     }
-// }
+const drawBricks = () => {
+    for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
+            if(bricks[c][r].status == 1) {
+                var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+                var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                // This logic will change every other brick column to a select color # CHALLENGE 1.1
+                if(c % 2 == 0 && r % 2==0){
+                    ctx.fillStyle = randomColor1;
+                }
+                else if(c % 2 == 0 && r % 2==1){
+                    ctx.fillStyle = randomColor2;
+                }else if(c % 2 == 1 && r % 2==0){
+                    ctx.fillStyle = randomColor2;
+                }
+                else{
+                    ctx.fillStyle = randomColor1;
+                }
+
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
 // // End brick section
 //
 // // End Challenge 1.3 section
@@ -280,36 +311,36 @@ const randomColorList =[];
     for(let i = 0; i < bricks.length; i++){
         let color = getRandomColor()
         randomColorList.push(color)
-        console.log(color)
+        // console.log(color)
 }
 
 
 // Variable that we can call '.next()' on
 const genColor = colorGenerator(randomColorList);
-console.log(genColor.next().value)
 
+
+// console.log(genColor.next().value)
 // Brick function
-const drawBricks = () => {
-
-    for(var c=0; c<brickColumnCount; c++) {
-        for(var r=0; r<brickRowCount; r++) {
-            console.log(c*r)
-            if(bricks[c][r].status == 1) {
-                var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
-                var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
-                bricks[c][r].x = brickX;
-                bricks[c][r].y = brickY;
-                ctx.beginPath();
-                ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                // This logic will change every other brick column to a select color # CHALLENGE 1.1
-                ctx.fillStyle = getRandomColor();
-                console.log(ctx.fillStyle)
-                ctx.fill();
-                ctx.closePath();
-            }
-        }
-    }
-}
+// const drawBricks = () => {
+//
+//     for(var c=0; c<brickColumnCount; c++) {
+//         for(var r=0; r<brickRowCount; r++) {
+//             if(bricks[c][r].status == 1) {
+//                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft ;
+//                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+//                 bricks[c][r].x = brickX -20;
+//                 bricks[c][r].y = brickY;
+//                 ctx.beginPath();
+//                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
+//                 // This logic will change every other brick column to a select color # CHALLENGE 1.1
+//                 ctx.fillStyle = getRandomColor();
+//                 console.log(ctx.fillStyle)
+//                 ctx.fill();
+//                 ctx.closePath();
+//             }
+//         }
+//     }
+// }
 // End brick section
 
 // End Challenge 1.4 section
@@ -360,8 +391,9 @@ function mouseMoveHandler(e) {
 
 // Draws on the screen and updates the x and y points
 let draw = () => {
-
     ctx.clearRect(0, 0, canvas.width, canvas.height); //This method takes four parameters: the x and y coordinates of the top left corner of a rectangle, and the x and y coordinates of the bottom right corner of a rectangle. The whole area covered by this rectangle will be cleared of any content previously painted there.
+    gradient()
+
     drawBricks()
     drawPaddle.render()
     drawBall.render()      //  Continuously renders the ball
