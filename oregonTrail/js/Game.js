@@ -139,5 +139,6 @@ OregonH.Game.resumeJourney = function() {
 };
 
 
+
 //init game
 OregonH.Game.init();
