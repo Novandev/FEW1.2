@@ -1,0 +1,16 @@
+{
+  "name": "oregonTrail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "“Donovan <donovan.adams@students.makeschool.com> (https://www.makeschool.com/portfolio/Donovan-Adams)",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-connect": "^2.0.0"
+  }
+}
