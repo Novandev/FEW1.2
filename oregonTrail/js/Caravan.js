@@ -13,7 +13,7 @@ OregonH.Caravan.init = function(stats){
     this.oxen = stats.oxen;
     this.money = stats.money;
     this.firepower = stats.firepower;
-    
+
 };
 
 //update weight and capacity
