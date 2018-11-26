@@ -1,5 +1,5 @@
 
-var config = {
+const config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -18,7 +18,11 @@ var config = {
     }
 };
 
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
+
+var player;
+var platforms;
+var cursors;
 
 function preload ()
 {
@@ -51,6 +55,10 @@ function create ()
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
+    // --- Keyboard movement events---//
+
+
+    // --- CHARACTER TURNS LEFT ---//
     this.anims.create({
         key: 'left',
         frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
@@ -58,12 +66,14 @@ function create ()
         repeat: -1
     });
 
+
+    // --- HANDLING THE RATE AT WHICH THE CHARACTER TURNS ---//
     this.anims.create({
         key: 'turn',
         frames: [ { key: 'dude', frame: 4 } ],
         frameRate: 20
     });
-
+    // --- CHARACTER TURNS LEFT ---//
     this.anims.create({
         key: 'right',
         frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
@@ -71,10 +81,41 @@ function create ()
         repeat: -1
     });
 
+    // --- END Keyboard movement events---//
+    // --- Bind the curser variable to the keyboard inputs---//
+    cursors = this.input.keyboard.createCursorKeys();
+    // --- Player and platform collision section ---//
+
+    this.physics.add.collider(player, platforms); // This makes sure that the player the platoform objects cant fall through eachother
+
+    // --- END Player and platform collision section ---//
+
 // --- END Player section ---//
 }
-
+// --- Update  handles ui events that are subject to change, such as when a character jumps or interacts with another enemy ---//
 function update ()
 {
-}
+    if (cursors.left.isDown)
+    {
+        player.setVelocityX(-160);
 
+        player.anims.play('left', true);
+    }
+    else if (cursors.right.isDown)
+    {
+        player.setVelocityX(160);
+
+        player.anims.play('right', true);
+    }
+    else
+    {
+        player.setVelocityX(0);
+
+        player.anims.play('turn');
+    }
+
+    if (cursors.up.isDown && player.body.touching.down)
+    {
+        player.setVelocityY(-330);
+    }
+}

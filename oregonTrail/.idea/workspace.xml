@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="31909bd6-f56b-4712-8dcf-2b7fd0ddca3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/js/mainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/../project/js/mainGame.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
