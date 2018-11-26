@@ -11,18 +11,21 @@ const config = {
             debug: false
         }
     },
+    // This sets up the scene, which can be changed based on actions and progress
     scene: {
         preload: preload,
         create: create,
         update: update
     }
 };
-
+// initializes the game with the configurations in the config object
 const game = new Phaser.Game(config);
 
+// variabks that willl be used in the game, usually will have physics applied to them
 var player;
 var platforms;
 var cursors;
+var stars;
 
 function preload ()
 {
@@ -42,11 +45,15 @@ function create ()
     this.add.image(400, 300, 'star'); // this will put the star on top of the sky image, position matters
     platforms = this.physics.add.staticGroup(); // Loads the physics engine and adds them to the static group the arent affected by physics and dont move. Think of the ground and most standing platforms. Set scale(2) gives it a width of twice tha actual viewable / playable area
 
-    platforms.create(400, 568, 'ground').setScale(2).refreshBody(); // refresh body tells this object to refesh wth screen changes
+    platforms.create(400, 568, 'ground').setScale(2).refreshBody(); // refresh body tells this object to refesh wth screen changes this block will be set to the bottom and will be static
 
     platforms.create(600, 400, 'ground');
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
+
+
+
+
 
     // --- Player section ---//
 
@@ -73,6 +80,8 @@ function create ()
         frames: [ { key: 'dude', frame: 4 } ],
         frameRate: 20
     });
+
+
     // --- CHARACTER TURNS LEFT ---//
     this.anims.create({
         key: 'right',
@@ -82,15 +91,43 @@ function create ()
     });
 
     // --- END Keyboard movement events---//
+
+    // --- END Player section ---//
+
+
+
     // --- Bind the curser variable to the keyboard inputs---//
     cursors = this.input.keyboard.createCursorKeys();
-    // --- Player and platform collision section ---//
+
+
+
+    // ---  Stars section---//
+    stars = this.physics.add.group({
+        key: 'star',    // gets the icon for making stars
+        repeat: 11,     // This repeats it 11 times after the first, making a total of 12
+        setXY: { x: 12, y: 0, stepX: 70 }       //
+    });
+
+    stars.children.iterate(function (child) {
+
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+
+    });
+    // --- End stars section ---//
+
+
+
+
+    // ---  Collision section ---//
 
     this.physics.add.collider(player, platforms); // This makes sure that the player the platoform objects cant fall through eachother
+    this.physics.add.collider(stars, platforms); // This makes sure that the stars and the platform cant go through eachother
 
-    // --- END Player and platform collision section ---//
+    this.physics.add.overlap(player, stars, collectStar, null, this);   // The overlap makes it so that when the player and any of the stars share the same space, the collectStar function will run
+    
+    // --- END  Collision section ---//
 
-// --- END Player section ---//
+
 }
 // --- Update  handles ui events that are subject to change, such as when a character jumps or interacts with another enemy ---//
 function update ()
@@ -111,11 +148,17 @@ function update ()
     {
         player.setVelocityX(0);
 
+
         player.anims.play('turn');
     }
 
     if (cursors.up.isDown && player.body.touching.down)
     {
         player.setVelocityY(-330);
+    }
+// --- Function to take the player object and any star object and  once they overlap, take the start off the screen by disablling its display---//
+    function collectStar (player, star)
+    {
+        star.disableBody(true, true);
     }
 }
