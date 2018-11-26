@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="653cb574-05ae-4f25-a6c9-24731d418159" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oregonTrail/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../oregonTrail/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mainGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/dude.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part9.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />

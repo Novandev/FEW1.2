@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2dec8f4-698f-4ea2-be76-21dc6ffd05c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oregonTrail/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oregonTrail/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/js/mainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/js/mainGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/assets/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/assets/dude.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/assets/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/assets/sky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/assets/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phaser3-tutorial-src/part9.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,42 +95,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
               <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phaser3-tutorial-src/part10.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phaser3-tutorial-src/part9.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="103" column="90" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phaser3-tutorial-src/part8.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="134" selection-start-line="134" selection-end-line="134" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phaser3-tutorial-src/part7.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="86" column="8" lean-forward="true" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -632,11 +607,6 @@
             <path>
               <item name="FEW-1.2-JavaScript-Foundations" type="b2602c69:ProjectViewProjectNode" />
               <item name="FEW-1.2-JavaScript-Foundations" type="462c0819:PsiDirectoryNode" />
-              <item name="phaser3-tutorial-src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FEW-1.2-JavaScript-Foundations" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FEW-1.2-JavaScript-Foundations" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -692,12 +662,12 @@
       <workItem from="1541995223762" duration="3188000" />
       <workItem from="1542310099789" duration="406000" />
       <workItem from="1542502698749" duration="146000" />
-      <workItem from="1543124239442" duration="12021000" />
+      <workItem from="1543124239442" duration="12041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20517000" />
+    <option name="totallyTimeSpent" value="20537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="63" width="1260" height="737" extended-state="0" />
