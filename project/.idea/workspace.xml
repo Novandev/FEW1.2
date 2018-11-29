@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="653cb574-05ae-4f25-a6c9-24731d418159" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/dude.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/platform.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/sky.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/assets/star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phaser3-tutorial-src/part9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oregonTrail/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../oregonTrail/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,6 +18,7 @@
     <session id="562158186">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -72,7 +60,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -159,12 +151,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543116762083</updated>
-      <workItem from="1543116763545" duration="1146000" />
+      <workItem from="1543116763545" duration="1148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1146000" />
+    <option name="totallyTimeSpent" value="1148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="32" width="1260" height="737" extended-state="0" />
@@ -206,7 +198,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

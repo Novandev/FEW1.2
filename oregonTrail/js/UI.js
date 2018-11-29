@@ -166,3 +166,16 @@ OregonH.UI.buyProduct = function(product) {
     //update visuals
     OregonH.UI.refreshStats();
 };
+
+//--- OOP oriented Oregon trail---//
+
+class UI {
+    constructor(game) {
+        this.game = game;   // Make an instance of the game class
+        this.prodsDiv = document.getElementById('prods');   // Setup to update the products div on the maon page
+        this.shopDiv = document.getElementById('shop');     // Set up do update the shop that travelers woill buy items and crew from
+        this.shopDiv.addEventListener('click', (event) => { // his handles the events to click on and update what youre biying in the  shop
+            this.shopDivHandler(event);
+        });
+    }
+}
