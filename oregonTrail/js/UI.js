@@ -206,4 +206,30 @@ class UI {
         document.getElementById('updates-area').innerHTML = `<div class="update-${type}">Day ${ceil(this.caravan.day)}: ${message}</div>${document.getElementById('updates-area').innerHTML}`;
     }
 
+    //When an attack is triggered
+    showAttack (firepower, gold) {
+        var attackDiv = document.getElementById('attack');
+        attackDiv.classList.remove('hidden');
+
+        // keep properties
+        this.firepower = firepower;
+        this.gold = gold;
+
+        // show firepower
+        document.getElementById('attack-description').innerHTML = `Firepower: ${firepower}`;
+
+        // init once
+        if(!this.attackInitiated) {
+
+            // fight
+            document.getElementById('fight').addEventListener('click', this.fight.bind(this));
+
+            // run away
+            document.getElementById('runaway').addEventListener('click', this.runaway.bind(this));
+
+            this.attackInitiated = true;
+        }
+    }
+
+
 }
