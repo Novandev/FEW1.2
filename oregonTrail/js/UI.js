@@ -178,4 +178,32 @@ class UI {
             this.shopDivHandler(event);
         });
     }
+    // This function refrreshed the ui stats
+    refreshStats () {
+        // Destructure some objects for easy access
+        const { day, distance, crew, oxen, food, money, firepower, weight, capacity } = this.caravan;
+        const { ceil, floor } = Math;   // the math will be utilized to make sure that objects that may be divieded will be rounded up or down
+
+        // modify the dom
+
+        // This is the base stats section for the game that will be displayed for the user in a div window
+        document.getElementById('stat-day').innerHTML = `${ceil(day)}`;
+        document.getElementById('stat-distance').innerHTML = `${floor(distance)}`;
+        document.getElementById('stat-crew').innerHTML = `${crew}`;
+        document.getElementById('stat-oxen').innerHTML = `${oxen}`;
+        document.getElementById('stat-food').innerHTML = `${ceil(food)}`;
+        document.getElementById('stat-money').innerHTML = `${money}`;
+        document.getElementById('stat-firepower').innerHTML = `${firepower}`;
+        document.getElementById('stat-weight').innerHTML = `${ceil(weight)}/${capacity}`;
+
+        // update caravan position by multipling my a static amound of 380( can be changed for a shorter or longer game) and dividing my distance
+        document.getElementById('caravan').style.left = `${(380 * distance / Config.FINAL_DISTANCE)}px`;
+    }
+
+    // This notifies and updates the areas that shows the general story  of the game
+    notify (message, type) {
+        const { ceil } = Math;
+        document.getElementById('updates-area').innerHTML = `<div class="update-${type}">Day ${ceil(this.caravan.day)}: ${message}</div>${document.getElementById('updates-area').innerHTML}`;
+    }
+
 }
