@@ -167,6 +167,7 @@ OregonH.UI.buyProduct = function(product) {
     OregonH.UI.refreshStats();
 };
 
+
 //--- OOP oriented Oregon trail---//
 
 class UI {
